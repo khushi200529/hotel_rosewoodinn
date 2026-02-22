@@ -46,7 +46,7 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
 .home-btn.small{font-size:16px;padding:14px}
 
 /* menu list */
-.menu-list{display:grid;gap:12px;margin-top:12px;grid-template-columns:repeat(auto-fill, minmax(200px,1fr));}
+.menu-list{display:grid;gap:16px;margin-top:12px;}
 .item{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;border:1px solid #f3f3f3;background:#fff}
 .item img{width:90px;height:66px;border-radius:8px;object-fit:cover}
 .meta{flex:1}
@@ -56,7 +56,7 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
 .qty{width:68px;padding:8px;border-radius:8px;border:1px solid #e6e8ee;text-align:center}
 
 /* cart */
-.cart{position:sticky;top:18px}
+.cart{position:static;top:18px; }
 .cart h3{margin:0 0 8px 0}
 .cart-list{display:flex;flex-direction:column;gap:8px;max-height:360px;overflow:auto;padding-right:6px;margin-top:8px}
 .cart-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:#fff;border:1px solid #f3f3f3}
@@ -85,6 +85,9 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
   .logo{width:72px;height:72px;font-size:20px}
   .home-btn{font-size:16px;padding:14px}
   .item img{width:78px;height:58px}
+  .menu-list{
+    grid-template-columns: 1fr ;
+  }
 }
 </style>
 </head>
@@ -134,7 +137,7 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
           </div>
 
           <div style="min-width:160px;text-align:right">
-            <a id="acCall" class="back-btn" href="tel:+919660065518" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">📞 Call for AC</a>
+            <a id="acCall" class="back-btn" href="tel:+919351575501" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">📞 Call for AC</a>
           </div>
         </div>
 
@@ -167,6 +170,40 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
         <a class="back-btn" onclick="backHome()">← Back</a>
         <div class="title" style="margin-top:12px">🍽 Food Menu</div>
         <div class="muted" style="margin-top:6px">tap quantity & Add-- If you order something else plz message to whatsapp</div>
+
+       <!-- Food Category Buttons -->
+      <div class="food-cat-bar" style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+
+         
+         <button class="back-btn" onclick="showFoodCat('all')">All</button>
+
+         <button class="back-btn" onclick="showFoodCat('snacks')">Snacks</button>
+ 
+         <button class="back-btn" onclick="showFoodCat('Pizza & Pasta')">Pizza & Pasta</button>
+
+         <button class="back-btn" onclick="showFoodCat('Sandwich & Burger')">Sandwich & Burger</button>
+
+         <button class="back-btn" onclick="showFoodCat('Main course')">Main course</button>
+
+         <button class="back-btn" onclick="showFoodCat('Breads')"> Breads </button>
+
+        </div>
+
+            <!-- Search Box -->
+             <div style="margin-top:10px">
+              <input 
+              type="text" 
+              id="foodSearch" 
+              placeholder="🔍 Search food..." 
+              onkeyup="searchFood()"
+              style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd"
+  >
+             </div>
+
+
+ 
+
+
         <div id="menuList" class="menu-list"></div>
       </div>
 
@@ -212,17 +249,7 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
         </div>
       </div>
 
-      <!-- Reviews -->
-      <div class="card" style="margin-top:14px">
-        <div class="title">⭐ Why Guest Love Staying With Us</div>
-        <div class="muted" style="margin-top:8px">Guest Satisfaction -our priority</div>
-        <div style="margin-top:12px;color:var(--muted)">
-          “Spotlessly Clean Rooms”<div style="height:8px"></div>
-          “Friendly & Quick Services”<div style="height:8px"></div>
-          “Comfortable Stay Experience”<div style="height:8px"></div>
-          “Value for money ”
-        </div>
-      </div>
+      
 
     </div>
 
@@ -244,7 +271,7 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
         <a id="clearCart" class="clear" href="#">Clear Cart</a>
 
         <div style="margin-top:10px;display:flex;gap:8px">
-          <a id="helpCall" class="back-btn" href="tel:+919000010000" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">📞 Call Staff</a>
+          <a id="helpCall" class="back-btn" href="tel:+919660065518" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">📞 Call Staff</a>
           <a id="helpWhats" class="back-btn" href="#" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">💬 WhatsApp</a>
         </div>
 
@@ -261,6 +288,19 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
         </div>
       </div>
     </div>
+    
+    <!-- Reviews -->
+      <div class="card" style="margin-top:14px" >
+        <div class="title">⭐ Why Guest Love Staying With Us</div>
+        <div class="muted" style="margin-top:8px">Guest Satisfaction -our priority</div>
+        <div style="margin-top:12px;color:var(--muted)">
+          “Spotlessly Clean Rooms”<div style="height:8px"></div>
+          “Friendly & Quick Services”<div style="height:8px"></div>
+          “Comfortable Stay Experience”<div style="height:8px"></div>
+          “Value for money ”
+        </div>
+      </div>
+
 
   </div>
 
@@ -287,27 +327,61 @@ body{margin:0;background:var(--bg);color:#071127;-webkit-font-smoothing:antialia
   <span>Order • ₹ <span id="fabTotal">0</span></span>
 </a>
 
+
 <script>
 /* ===== CONFIG - change later if needed ===== */
-const STAFF_PHONE = "+919660065518";    // random staff call
-const STAFF_WHATSAPP = "919660065518";  // random whatsapp (no +)
+const STAFF_PHONE = "+919351575501";    // random staff call
+const STAFF_WHATSAPP = "919351575501";  // random whatsapp (no +)
 const WIFI_SSID = "Rosewood_Guest_Wifi";
 const WIFI_PASS = "Welcomeinrosewood";
 const DEFAULT_ROOM = "101";
 /* ===== end config ===== */
 
 const MENU = [
-  {id:1, title:"Veg Sandwich", price:60,img :  "https://www.bigbasket.com/media/uploads/recipe/w-l/1567_1.jpg"},
-  {id:2, title:"Cheese Sandwich", price:80, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYZZE556HZsDqNLrWth_iJAWhAuwtWkMb01g&s"},
-  {id:3, title:"Veg Burger", price:50, img:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=60"},
-  {id:4, title:"cheese Burger", price:80, img:"image/cheeseburger.jpeg"},
-  {id:5, title:"French Fries", price:60, img:"image/french fries.jpeg"},
-  {id:6, title:"soya chaap", price:90, img:"image/soya chaap.jpeg"},
-  {id:7, title:"masala maggie", price:80, img:"image/masala maggie.jpeg"},
-  {id:8, title:"maggie", price:40, img:"image/simplemaggie.jpeg"},
-  {id:9, title:"Pizza", price:100, img:"image/pizza.jpg"},
-  {id:10, title:"Cheese pizza", price:150, img:"image/cheese piza.jpg"},
-  {id:11, title:"Ice Cream Cup", price:50, img:"image/icecreamcup.jpeg"}
+  {id:1, title:"Veg Sandwich", price:60,cat:"Sandwich & Burger" , img :  "https://www.bigbasket.com/media/uploads/recipe/w-l/1567_1.jpg"},
+  {id:2, title:"Cheese Sandwich", price:80,cat:"Sandwich & Burger" , img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYZZE556HZsDqNLrWth_iJAWhAuwtWkMb01g&s"},
+  {id:3, title:"Veg Burger", price:50,cat:"Sandwich & Burger" , img:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=60"},
+  {id:4, title:"cheese Burger", price:80, cat:"Sandwich & Burger" ,img:"image/cheeseburger.jpeg"},
+  {id:5, title:"hara_bhara_kabab (8 pec)", price:149, cat:"snacks" ,img:"image/hara-bhara-kabab.jpg"},
+  {id:6, title:"French Fries", price:110, cat:"snacks" ,img:"image/french fries.jpeg"},
+  {id:6, title:"peri peri Fries", price:119, cat:"snacks" ,img:"image/peri_peri_friese.jpg"},
+  {id:8, title:"paneer pakoda (8 pec )", price:150, cat:"snacks" ,img:"image/paneer_pakoda_8 pec.jpg"},
+  {id:9, title:"honey chilli patato", price:129, cat:"snacks" ,img:"image/honey chilli patato.jpg"},
+  {id:10, title:"steam momos (8 pec)", price:69, cat:"snacks" ,img:"image/steam momos.jpg"},
+  {id:11, title:"Fride momos(8 pec)", price:89, cat:"snacks" ,img:"image/fride momos.jpg"},
+  {id:12, title:"veg dry manchurian (8 pec)", price:139, cat:"snacks" ,img:"image/veg dry manchorian 8pec.jpg"},
+  {id:13, title:"masala maggie", price:80,cat:"snacks" , img:"image/masala maggie.jpeg"},
+  {id:14, title:"maggie", price:40,cat:"snacks" , img:"image/simplemaggie.jpeg"},
+  {id:15, title:"Ice Cream Cup", price:50, cat:"snacks" ,img:"image/icecreamcup.jpeg"},
+  {id:16, title:"soya chaap", price:190,cat:"Main course" , img:"image/soya chaap.jpeg"},
+  {id:17, title:"Matar paneer", price:149,cat:"Main course" , img:"image/matar paneer.jpg"},
+  {id:18, title:"kadhai paneer", price:179,cat:"Main course" , img:"image/kadhai paneer.jpg"},
+  {id:19, title:"shahi paneer", price:199,cat:"Main course" , img:"image/shahi paneer.jpg"},
+  {id:20, title:"butter paneer masala ", price:119,cat:"Main course" , img:"image/butter paneer masala.jpg"},
+  {id:21, title:"paneer lababdaar", price:199,cat:"Main course" , img:"image/paneer lababdar.jpg"},
+  {id:22, title:"palak paneer", price:189,cat:"Main course" , img:"image/palak paneer.jpg"},
+  {id:23, title:"Mix veg ", price:179,cat:"Main course" , img:"image/mix veg.jpg"},
+  {id:24, title:"Dal tadka ", price:129,cat:"Main course" , img:"image/dal tadka.jpg"},
+  {id:25, title:"Dal fry", price:139,cat:"Main course" , img:"image/dal fry.jpg"},
+  {id:26, title:"tawa roti", price:15,cat:"Breads" , img:"image/tawa roti.jpg"},
+  {id:27, title:"naan", price:40,cat:"Breads" , img:"image/naan.jpg"},
+  {id:28, title:"tawa butter roti", price:18,cat:"Breads" , img:"image/tawa butter roti.jpg"},
+  {id:29, title:"Aloo paratha", price:37,cat:"Breads" , img:"image/aloo paratha.jpg"},
+  {id:30, title:"plain paratha", price:39,cat:"Breads" , img:"image/plain paratha.jpg"},
+  {id:31, title:"paneer paratha", price:79,cat:"Breads" , img:"image/paneer paratha.jpg"},
+  {id:32, title:"tandoori roti", price:55,cat:"Breads" , img:"image/tandoori roti.jpg"},
+  {id:33, title:"Onion Pizza", price:100,cat:"Pizza & Pasta" , img:"image/pizza.jpg"},
+  {id:34, title:"Cheese pizza", price:150,cat:"Pizza & Pasta" , img:"image/cheese piza.jpg"},
+  {id:35, title:"margerita pizza", price:169,cat:"Pizza & Pasta" , img:"image/margerita pizza.webp"},
+   {id:36, title:"Otc Pizza", price:189,cat:"Pizza & Pasta" , img:"image/Otc pizza.jpg"},
+   {id:37, title:"paneer Pizza", price:219,cat:"Pizza & Pasta" , img:"image/paneer pizza.jpg"},
+   {id:38, title:"cheese sweet corn piza Pizza", price:179,cat:"Pizza & Pasta" , img:"image/cheese sweet corn pizza.jpg"},
+   {id:39, title:"red sauce pasta ", price:159,cat:"Pizza & Pasta" , img:"image/red sauce pasta.jpg"},
+   {id:40, title:"pink sauce pasta ", price:199,cat:"Pizza & Pasta" , img:"image/pink sauce pasta.jpg"},
+   {id:41, title:"white sauce pasta ", price:189,cat:"Pizza & Pasta" , img:"image/white sauce pasta.jpg"}
+
+
+
 ];
 
 let cart = {}; // key => {title,price,qty,type}
@@ -341,20 +415,28 @@ function showSection(name){
   if(name==='water') $('waterSection').classList.remove('hidden');
   if(name==='drinks') $('drinksSection').classList.remove('hidden');
   // scroll top for better UX
-  window.scrollTo({top:0,behavior:'smooth'});
+
 }
 function backHome(){
   // show home actions, hide sections
   $('homeActions').classList.remove('hidden');
   ['foodSection','waterSection','drinksSection'].forEach(id=>$(id).classList.add('hidden'));
-  window.scrollTo({top:0,behavior:'smooth'});
+  
 }
 
 /* render menu */
-function renderMenu(){
-  const out = $('menuList'); out.innerHTML='';
-  MENU.forEach(it=>{
-    const div = document.createElement('div'); div.className='item';
+function renderMenu(category = 'all'){
+
+  const out = $('menuList');
+  out.innerHTML = '';
+
+  MENU
+  .filter(it => category === 'all' || it.cat === category)
+  .forEach(it => {
+
+    const div = document.createElement('div');
+    div.className = 'item';
+
     div.innerHTML = `
       <img src="${it.img}" alt="${it.title}">
       <div class="meta">
@@ -362,13 +444,76 @@ function renderMenu(){
         <div class="price">₹${it.price}</div>
         <div class="controls">
           <input id="qty_${it.id}" class="qty" type="number" min="1" placeholder="Qty">
-          <button class="back-btn" onclick="addMenu(${it.id})" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">Add</button>
+          <button class="back-btn"
+            onclick="addMenu(${it.id})"
+            style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">
+            Add
+          </button>
         </div>
       </div>
     `;
+
     out.appendChild(div);
   });
 }
+
+
+function showFoodCat(cat){
+  renderMenu(cat);
+}
+
+
+function searchFood(){
+
+  const text = document.getElementById('foodSearch').value.toLowerCase();
+  const out = $('menuList');
+  out.innerHTML = '';
+
+  const filteredItems = MENU.filter(it =>
+    it.title.toLowerCase().includes(text)
+  );
+
+  // Agar kuch bhi match nahi hua
+  if(filteredItems.length === 0){
+    out.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;color:#777;padding:20px;font-size:16px">
+        😕 No food item found <br>
+        <span style="font-size:13px">Try searching something else</span>
+
+      </div>
+    `;
+    return;
+  }
+
+  // Agar items mile
+  filteredItems.forEach(it => {
+
+    const div = document.createElement('div');
+    div.className = 'item';
+
+    div.innerHTML = `
+      <img src="${it.img}" alt="${it.title}">
+      <div class="meta">
+        <h4>${it.title}</h4>
+        <div class="price">₹${it.price}</div>
+        <div class="controls">
+          <input id="qty_${it.id}" class="qty" type="number" min="1" placeholder="Qty">
+          <button class="back-btn"
+            onclick="addMenu(${it.id})"
+            style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#fff;border:none">
+            Add
+          </button>
+        </div>
+      </div>
+    `;
+
+    out.appendChild(div);
+  });
+
+}
+
+
+
 
 /* add menu item */
 function addMenu(id){
@@ -488,7 +633,8 @@ function sendServiceRequest(){
   const val = (document.getElementById('svcQty')||{}).value || '';
   const msg = `Hotel Rosewood.inn\nRoom ${room}: Service Request - ${currentService}.\nDetails: ${val}`;
   window.location.href = 'https://wa.me/' + STAFF_WHATSAPP + '?text=' + encodeURIComponent(msg);
-}
+ 
+    }
 
 /* close modal on outside click */
 document.getElementById('modalBack').addEventListener('click', function(e){ if(e.target===this) closeServiceModal(); });
@@ -496,4 +642,3 @@ document.getElementById('modalBack').addEventListener('click', function(e){ if(e
 </script>
 </body>
 </html>
-
