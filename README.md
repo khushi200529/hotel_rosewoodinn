@@ -1,4 +1,5 @@
 🏨 Hotel Rosewood.inn — Digital Guest Service System
+
 A modern hotel guest-service and food-ordering web application designed to make the guest experience faster, simpler, and more convenient.
 
 The system provides guests with a digital interface where they can access hotel information, browse food and beverages, place orders, request room services, and contact hotel staff through Call and WhatsApp options.
@@ -6,6 +7,7 @@ The system provides guests with a digital interface where they can access hotel 
 🔗 Live Website: https://khushi200529.github.io/hotel_rosewoodinn/
 
 ✨ Key Features
+
 🏨 Guest Dashboard
 A clean and user-friendly dashboard designed specifically for hotel guests.
 
@@ -22,6 +24,7 @@ Food, water, and drinks sections
 Shopping cart with order total
 
 🍔 Digital Food Menu
+
 Guests can browse the available food items through a digital menu.
 
 Food categories
@@ -51,6 +54,7 @@ Available services include:
 
 ❄️ AC Assistance
 
+
 🛒 Cart & Ordering
 The application provides a simple cart system for managing orders.
 
@@ -66,6 +70,7 @@ Clear cart
 
 Place order through WhatsApp
 
+
 📞 Contact Hotel Staff
 Guests can quickly contact hotel staff using:
 
@@ -75,22 +80,26 @@ WhatsApp
 
 Call for AC assistance
 
+
+
 📱 QR-Code Based Guest Access
 A QR-code system is included to provide guests with quick access to the digital hotel service interface.
 
 Guests can scan the QR code using their mobile device instead of manually entering the website address.
 
-📸 Project Screenshots
-🏨 Hotel Guest Dashboard
 
+
+📸 Project Screenshots
+
+
+🏨 Hotel Guest Dashboard
 
 🍔 Digital Food Menu
 
-
 🧹 Room Service Request
 
-
 📱 QR-Code Access System
+
 
 
 🧩 How the System Works
@@ -120,6 +129,8 @@ Hotel Guest Dashboard
              │
              ▼
         Guest Request / Order
+
+        
 🛠️ Technologies Used
 HTML5 — Web page structure
 
@@ -133,6 +144,8 @@ QR Code — Quick guest access
 
 WhatsApp Integration — Guest order/contact flow
 
+
+
 📁 Project Structure
 hotel_rosewoodinn/
 │
@@ -145,7 +158,10 @@ hotel_rosewoodinn/
 ├── qr-code.png
 │
 └── README.md
+
+
 🚀 How to Run Locally
+
 1. Clone the repository
 git clone https://github.com/khushi200529/hotel_rosewoodinn.git
 2. Open the project folder
@@ -153,13 +169,16 @@ cd hotel_rosewoodinn
 3. Run the project
 Since this is a frontend web application, you can open index.html directly in a browser.
 
+
 For a better local development experience, use VS Code Live Server or any local HTTP server.
+
 
 🌐 Deployment
 The project is deployed using GitHub Pages.
 
 🔗 Live Demo:
 https://khushi200529.github.io/hotel_rosewoodinn/
+
 
 🎯 Project Objective
 The objective of this project is to create a digital hotel guest-service system that reduces the need for manual requests and provides guests with a convenient way to:
@@ -176,6 +195,8 @@ Contact hotel staff
 
 Access the service portal using a QR code
 
+
+
 💡 Highlights
 ⭐ Digital hotel guest dashboard
 ⭐ QR-code based access
@@ -187,6 +208,8 @@ Access the service portal using a QR code
 ⭐ Wi-Fi & AC information
 ⭐ Responsive and user-friendly interface
 ⭐ Deployed using GitHub Pages
+
+
 
 🔮 Future Improvements
 Some possible future improvements include:
@@ -210,6 +233,7 @@ Push notifications for staff
 Multi-language support
 
 Mobile application version
+
 
 👩‍💻 Author
 Khushi Shekhawat
